@@ -1,0 +1,25 @@
+<template>
+  <div class="ui stacked segment">
+    <h3 class="ui dividing header"> Points to Date </h3>
+    <table class="ui celled table segment">
+      <tr repeat.for="category of categories ">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Description</th>
+          <th>Location</th>
+          <th>Category</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr repeat.for="point of points">
+          <td> ${point.name}</td>
+          <td> ${point.description}</td>
+          <td> ${point.coordinates.lat},${point.coordinates.long}</td>
+          <td> ${point.category.costalZone}</td>
+        </tr>
+      </tbody>
+      </tr>
+    </table>
+  </div>
+</template>
