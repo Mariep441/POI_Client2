@@ -1,12 +1,14 @@
 <template>
   <require from="./location"></require>
 
+
   <form submit.trigger="contribute()" class="ui form stacked segment">
     <h4 class='ui dividing header'> Add a Point of Interest </h4>
     <div class="field"><label>Name</label> <input value.bind="name"></div>
     <div class="field"><label>Description</label> <input value.bind="description"></div>
-    <div class="field"><label>Latitude</label> <input value.bind="lat"></div>
-    <div class="field"><label>Longitude</label> <input value.bind="long"></div>
+
+    <location coordinates.two-way="coordinates"></location>
+
 
     <h4 class="ui dividing header"> Select Category </h4>
       <div class="field" repeat.for="category of categories">
@@ -15,7 +17,6 @@
           <label>${category.costalZone}</label>
         </div>
       </div>
-
     <h4 class="ui dividing header"> Add a new Category </h4>
     <form submit.trigger="addCategory()" class="ui form stacked segment">
       <div class="field"><label>Costal Zone</label> <input value.bind="costalZone" /></div>

@@ -1,0 +1,20 @@
+<template>
+  <div id="coasts-menu" uk-offcanvas="mode: reveal;" >
+    <div class="uk-offcanvas-bar">
+      <button class="uk-offcanvas-close" type="button" uk-close></button>
+      <div repeat.for="category of categories">
+        <ul class="uk-nav-default uk-nav-parent-icon" uk-nav>
+          <li class="uk-parent">
+            <a href="#">${category.costalZone}</a>
+            <ul class="uk-nav-sub">
+              <div repeat.for="point of category.points">
+                <li><a href="/point/${point.name}"> ${point.name}</a></a></li>
+              </div>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</template>
+

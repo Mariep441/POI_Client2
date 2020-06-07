@@ -1,13 +1,17 @@
-import { RouterConfiguration, Router } from 'aurelia-router';
 import { PLATFORM } from 'aurelia-pal';
+import { RouterConfiguration, Router } from 'aurelia-router';
+import { PointService } from './services/point-service';
 
 export class App {
   router: Router;
+  title = "Point of Interest";
+  constructor(private ds: PointService) {}
 
   configureRouter(config: RouterConfiguration, router: Router) {
+    config.title = "Point of Interest";
+    config.options.pushState = true;
     config.map([
-      {
-        route: 'map',
+      { route: [""],
         name: 'map',
         moduleId: PLATFORM.moduleName('views/map'),
         nav: true,
@@ -21,7 +25,7 @@ export class App {
         title: "List of all Points of Interest",
       },
       {
-        route: ['', 'contribute'],
+        route: 'contribute',
         name: 'Contribute',
         moduleId: PLATFORM.moduleName('views/contribute'),
         nav: true,
@@ -41,10 +45,10 @@ export class App {
         title: 'Navigator',
       },
       {
-        route: "point/:id",
+        route:  'points/:id',
         moduleId: PLATFORM.moduleName('views/point-detail'),
-        name: "points",
-        title: "Island",
+        name: 'points',
+        title: 'Island',
       },
 
     ]);
