@@ -15,7 +15,7 @@ export class PointService {
 
   constructor(private httpClient: HttpClient, private ea: EventAggregator, private au: Aurelia, private router: Router) {
     httpClient.configure((http) => {
-      http.withBaseUrl('https://mariep441-entreprise-web-dev-2.glitch.me');
+      http.withBaseUrl('https://mariep441-entreprise-web-dev-2.glitch.me/');
     });
   }
 
